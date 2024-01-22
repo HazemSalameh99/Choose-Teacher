@@ -1,0 +1,56 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = ":Login";
+    Layout = null;
+}
+<link rel="stylesheet" href="~/plugins/bootstrap/bootstrap.min.css">
+<!-- slick slider -->
+<link rel="stylesheet" href="~/plugins/slick/slick.css">
+<!-- themefy-icon -->
+<link rel="stylesheet" href="~/plugins/themify-icons/themify-icons.css">
+<!-- animation css -->
+<link rel="stylesheet" href="~/plugins/animate/animate.css">
+<!-- aos -->
+<link rel="stylesheet" href="~/plugins/aos/aos.css">
+<!-- venobox popup -->
+<link rel="stylesheet" href="~/plugins/venobox/venobox.css">
+
+<!-- Main Stylesheet -->
+<link href="~/css/style.css" rel="stylesheet">
+
+<style>
+    hr {
+        width: 40%;
+        height: 0;
+        border: solid #ffbc3b;
+        font-weight: 700;
+    }
+</style>
+<center>
+    <div style="background-color:whitesmoke;">
+        <div class="container pt-5" style="height:100%;">
+            <div class="col-md-8" style="background-color:white;style=" height:100%;">
+                <h4>Login</h4>
+                <hr />
+                <form asp-action="Login" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <input asp-for="Email" placeholder="@Html.DisplayNameFor(r=>r.Email)" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input asp-for="Password" placeholder="@Html.DisplayNameFor(r=>r.Password)" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="btn btn-primary" />
+                        <span class="text-danger">@ViewBag.Error</span>
+                        <p>Don't Have A Account Yet? <a asp-action="Register" asp-controller="Account">CREATE NOW!</a></p>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</center>

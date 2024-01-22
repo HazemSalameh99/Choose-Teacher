@@ -1,11 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Choose_Teacher.Models.SharedProp;
+using System.ComponentModel.DataAnnotations;
 
 namespace Choose_Teacher.Models
 {
-    public class User
+    public class User:CommonProp
     {
         public int UserId { get; set; }
-        [Required(ErrorMessage ="Plase Input The Name")]
+        [Required(ErrorMessage ="Plase Input Your Name")]
         [Display(Name ="Your Name")]
         public string UserName { get; set; }
         [Required(ErrorMessage = "Plase Input Email")]
@@ -29,6 +30,7 @@ namespace Choose_Teacher.Models
         [Required(ErrorMessage ="Choose The Role")]
         [Display(Name ="Role")]
         public Role Role { get; set; } = Role.User;
+        public ICollection<Teacher> Teachers { get; set; }
 
     }
     public enum Role

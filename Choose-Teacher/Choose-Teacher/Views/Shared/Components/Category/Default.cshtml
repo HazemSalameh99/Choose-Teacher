@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Category>
+
+<section class="section bg-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center section-title justify-content-between">
+                    <h2 class="mb-0 text-nowrap mr-3">Materials</h2>
+                    <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+                    @*  <div>
+                    <a href="events.html" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">see all</a>
+                    </div> *@
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <!-- event -->
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-sm-6 mb-5 mb-lg-5">
+                    <div class="card border-0 rounded-0 hover-shadow">
+                        <div class="card-img position-relative">
+                            <img class="card-img-top rounded-0" src="~/img/@item.CategoryImg" alt="event thumb">
+                            <div class="card-date"><span>@ViewData["Number"]</span><br>Teacher</div>
+                        </div>
+                        <div class="card-body">
+                            <!-- location -->
+                            <h4>@item.CategoryName</h4>
+                            <p class="card-title">@item.CategoryDesc</p>
+                            <div>
+                                <a asp-action="Teachers" asp-controller="Home" asp-route-id="@item.CategoryId" class="btn btn-sm btn-primary-outline ml-sm-0 d-none d-sm-block">see all</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <!-- mobile see all button -->
+        @*     <div class="row">
+        <div class="col-12 text-center">
+        <a href="course.html" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">sell all</a>
+        </div>
+        </div> *@
+    </div>
+</section>

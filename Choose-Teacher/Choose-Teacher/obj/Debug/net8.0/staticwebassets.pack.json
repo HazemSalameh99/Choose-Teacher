@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Choose-Teacher.bundle.scp.css"
     },
     {
+      "Id": "E:\\OrangeTasks\\Final Project\\Choose-Teacher\\Choose-Teacher\\Choose-Teacher\\wwwroot\\contact.html",
+      "PackagePath": "staticwebassets\\contact.html"
+    },
+    {
       "Id": "E:\\OrangeTasks\\Final Project\\Choose-Teacher\\Choose-Teacher\\Choose-Teacher\\wwwroot\\css\\maps\\style.css.map",
       "PackagePath": "staticwebassets\\css\\maps\\style.css.map"
     },
@@ -121,10 +125,6 @@
       "PackagePath": "staticwebassets\\images\\events\\event-single.jpg"
     },
     {
-      "Id": "E:\\OrangeTasks\\Final Project\\Choose-Teacher\\Choose-Teacher\\Choose-Teacher\\wwwroot\\images\\logo.png",
-      "PackagePath": "staticwebassets\\images\\logo.png"
-    },
-    {
       "Id": "E:\\OrangeTasks\\Final Project\\Choose-Teacher\\Choose-Teacher\\Choose-Teacher\\wwwroot\\images\\research\\research-1.jpg",
       "PackagePath": "staticwebassets\\images\\research\\research-1.jpg"
     },
@@ -179,6 +179,10 @@
     {
       "Id": "E:\\OrangeTasks\\Final Project\\Choose-Teacher\\Choose-Teacher\\Choose-Teacher\\wwwroot\\images\\teachers\\teacher-3.jpg",
       "PackagePath": "staticwebassets\\images\\teachers\\teacher-3.jpg"
+    },
+    {
+      "Id": "E:\\OrangeTasks\\Final Project\\Choose-Teacher\\Choose-Teacher\\Choose-Teacher\\wwwroot\\img\\24f57ce66f.jpg",
+      "PackagePath": "staticwebassets\\img\\24f57ce66f.jpg"
     },
     {
       "Id": "E:\\OrangeTasks\\Final Project\\Choose-Teacher\\Choose-Teacher\\Choose-Teacher\\wwwroot\\index.html",

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Teacher>
+
+@{
+    ViewData["Title"] = "Teachers";
+}
+
+<section class="section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex align-items-center section-title justify-content-between">
+                    <h2 class="mb-0 text-nowrap mr-3">@ViewData["CategoryName"] Teachers</h2>
+                    <div class="border-top w-100 border-primary d-none d-sm-block"></div>
+                   @*  <div>
+                        <a href="courses.html" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">see all</a>
+                    </div> *@
+                </div>
+            </div>
+        </div>
+        @if (Model.Any())
+        {
+        <!-- course list -->
+        <div class="row justify-content-center">
+            @foreach (var item in Model)
+            {
+                <!-- course item -->
+                <div class="col-lg-4 col-sm-6 mb-5">
+                    <div class="card p-0 border-primary rounded-0 hover-shadow">
+                        <img class="card-img-top rounded-0" src="~/img/@item.ImageUrl" alt="course thumb">
+                        <div class="card-body">
+                            <ul class="list-inline mb-2">
+                                <li class="list-inline-item"><a class="text-color" href="#">@item.TeacherName</a></li>
+                                <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>@item.PriceOfHour</li>
+                            </ul>
+                            <a href="course-single.html">
+                                <h4 class="card-title">@item.Category.CategoryName</h4>
+                            </a>
+                            <p class="card-text mb-4">
+                                @if (item.Bio.Length<100)
+                                {
+                                    @item.Bio
+                                }
+                                else{@item.Bio.Substring(0,100)}
+                            </p>
+                            <p class="card-text mb-4">
+                                <i class="ti-location-pin text-primary mr-2"></i>
+                               @item.City
+                            </p>
+                            <a asp-action="Detailes"asp-controller="Home"asp-route-id="@item.TeacherId" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i>Show Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- course item -->
+            }
+            
+        </div>
+        <!-- /course list -->
+        <!-- mobile see all button -->
+        @* <div class="row">
+            <div class="col-12 text-center">
+                <a href="courses.html" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">sell all</a>
+            </div>
+            </div> *@
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                <h1>There are no @ViewData["CategoryName"] teachers.</h1>
+            </div>
+        }
+         <div>
+        <a asp-action="Index"asp-controller="Home" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">Back To Home</a>
+        </div>
+    </div>
+</section>

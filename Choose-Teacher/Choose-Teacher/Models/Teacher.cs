@@ -1,9 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Choose_Teacher.Models.SharedProp;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 
 namespace Choose_Teacher.Models
 {
-    public class Teacher
+    public class Teacher:CommonProp
     {
         public int TeacherId { get; set; }
         [Required(ErrorMessage ="Input Teacher Name")]
@@ -19,12 +20,27 @@ namespace Choose_Teacher.Models
         [Required(ErrorMessage = "Choose City")]
         [Display(Name = "City")]
         public City City { get; set; }
+        [Required(ErrorMessage ="Input Price Of Hour")]
+        [Display(Name ="Price Of Hour")]
+        public decimal PriceOfHour { get; set; }
 
         [Required(ErrorMessage = "Input Loacation")]
         [Display(Name = "Loacation")]
         public string? Loacation { get; set; }
+        [Display(Name ="Bio")]
         public string Bio { get; set; }
-        public string ImageUrl { get; set; }
+        [Display(Name ="Image")]
+        [DataType (DataType.ImageUrl)]
+        public string? ImageUrl { get; set; }
+        [Required(ErrorMessage ="Choose Category")]
+        [Display(Name ="Category")]
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+        public ICollection<User> Users { get; set; }
+        public decimal Price(decimal Hour,decimal PriceOfHour)
+        {
+            return Hour * PriceOfHour;  
+        }
 
     }
 }

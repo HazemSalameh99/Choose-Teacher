@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Choose_Teacher.Models.SharedProp;
+using System.ComponentModel.DataAnnotations;
 
 namespace Choose_Teacher.Models
 {
-    public class Experience
+    public class Experience:CommonProp
     {
         public int ExperienceId { get; set; }
         [Required(ErrorMessage = "Input Organization")]
@@ -24,5 +25,9 @@ namespace Choose_Teacher.Models
         [Display(Name = "Description")]
         [DataType(DataType.MultilineText)]
         public string? Description { get; set; }
+        [Required(ErrorMessage = "Input Teacher")]
+        [Display(Name = "Teacher")]
+        public int TeacherId { get; set; }
+        public Teacher Teacher { get; set; }
     }
 }

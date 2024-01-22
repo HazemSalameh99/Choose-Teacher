@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Choose_Teacher.Models.SharedProp;
+using System.ComponentModel.DataAnnotations;
 
 namespace Choose_Teacher.Models
 {
-    public class Education
+    public class Education:CommonProp
     {
         public int EducationId { get; set; }
         [Required(ErrorMessage = "Input Majoring")]
@@ -15,7 +16,11 @@ namespace Choose_Teacher.Models
         [Display(Name = "Graduation Year")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime GraduationYear { get; set; } 
+        public DateTime GraduationYear { get; set; }
+        [Required(ErrorMessage = "Input Teacher")]
+        [Display(Name = "Teacher")]
+        public int TeacherId { get; set; }
+        public Teacher Teacher { get; set; }
 
     }
 }
