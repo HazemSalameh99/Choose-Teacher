@@ -1,9 +1,12 @@
 ﻿using Choose_Teacher.Data;
 using Choose_Teacher.Models;
 using Choose_Teacher.Models.ViewModels;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace Choose_Teacher.Controllers
 {
@@ -23,6 +26,14 @@ namespace Choose_Teacher.Controllers
         {
             if (ModelState.IsValid)
             {
+                var chechUser = await _context.Users.SingleOrDefaultAsync(u => u.Email == model.Email);
+                var chechTeacher = await _context.Teachers.SingleOrDefaultAsync(t => t.Email == model.Email);
+                if (chechUser != null || chechTeacher != null)
+                {
+                    ModelState.AddModelError(string.Empty, "An account with this email already exists.");
+                    return View(model);
+
+                }
                 User user = new User
                 {
                     UserName = model.UserName,
@@ -35,13 +46,6 @@ namespace Choose_Teacher.Controllers
                     IsActive = true,
                     IsDeleted = false,
                 };
-                var chechUser=_context.Users.Where(u=>u.Email==model.Email);
-                if (chechUser!=null)
-                {
-                    ModelState.AddModelError(string.Empty, "An account with this email already exists.");
-                    return View(model);
-
-                }
                     _context.Users.Add(user);
                     await _context.SaveChangesAsync();
                     return RedirectToAction("Login");
@@ -57,11 +61,18 @@ namespace Choose_Teacher.Controllers
         {
             if (ModelState.IsValid)
             {
-                var checkUser =await _context.Users.Where(u => u.Email == model.Email && u.Password == model.Password).ToListAsync();
-                if (checkUser.Any())
+                var checkUser = await _context.Users.AnyAsync(u => u.Email == model.Email && u.Password == model.Password && u.Role == Role.User);
+                var checkTeacher = await _context.Teachers.AnyAsync(t => t.Email == model.Email && t.Password == model.Password);
+                var Admin = await _context.Users.AnyAsync(t => t.Email == model.Email && t.Password == model.Password &&t.Role==Role.Admin);
+                if (checkUser)
                 {
-                    _context.Users.Include(u => u.UserId);
+                    HttpContext.Session.SetString("Email",model.Email);
                     return RedirectToAction("Index","Home");
+                }
+                else if (checkTeacher||Admin)
+                {
+                    HttpContext.Session.SetString("Email",model.Email); 
+                    return RedirectToAction("Index", "Admin");
                 }
                 else
                 {
@@ -70,6 +81,12 @@ namespace Choose_Teacher.Controllers
                 }
             }
             return View(model);
+        }
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login", "Account"); 
         }
     }
 }

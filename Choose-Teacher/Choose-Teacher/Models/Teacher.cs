@@ -10,11 +10,15 @@ namespace Choose_Teacher.Models
         [Required(ErrorMessage ="Input Teacher Name")]
         [Display(Name ="Teacher")]
         public string TeacherName { get; set; }
-        [Required(ErrorMessage = "Input Teacher Email")]
+        [Required(ErrorMessage = "Input Email")]
         [Display(Name = "Teacher Email")]
         public string Email { get; set; }
-        [Required(ErrorMessage = "Input Teacher Phone Number")]
-        [Display(Name = "Teacher Phone Number")]
+        [Required(ErrorMessage = "Plase Input Password")]
+        [Display(Name = "Password")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+        [Required(ErrorMessage = "Input Phone Number")]
+        [Display(Name = "Phone Number")]
         [DataType(DataType.PhoneNumber)]
         public int phoneNumber { get; set; }
         [Required(ErrorMessage = "Choose City")]
