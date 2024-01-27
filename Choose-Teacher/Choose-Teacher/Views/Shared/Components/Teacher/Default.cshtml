@@ -12,7 +12,7 @@
                     <h2 class="mb-0 text-nowrap mr-3">Our Teachers</h2>
                     <div class="border-top w-100 border-primary d-none d-sm-block"></div>
                     <div>
-                        <a asp-action="AllTeachers" asp-controller="Home" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">see all</a>
+                        <a asp-action="AllTeachers" asp-controller="Teachers" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">see all</a>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                                 <i class="ti-location-pin text-primary mr-2"></i>
                                 @item.City
                             </p>
-                            <a asp-action="TeacherDetails" asp-controller="Home" asp-route-id="@item.TeacherId" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i>Show Details</a>
+                            <a asp-action="TeacherDetails" asp-controller="Teachers" asp-route-id="@item.TeacherId" class="btn btn-primary btn-sm"><i class="bi bi-eye"></i>Show Details</a>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
         <!-- mobile see all button -->
         <div class="row">
             <div class="col-12 text-center">
-                <a asp-action="AllTeachers" asp-controller="Home" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">sell all</a>
+                <a asp-action="AllTeachers" asp-controller="Teachers" class="btn btn-sm btn-primary-outline d-sm-none d-inline-block">sell all</a>
             </div>
         </div>
 
