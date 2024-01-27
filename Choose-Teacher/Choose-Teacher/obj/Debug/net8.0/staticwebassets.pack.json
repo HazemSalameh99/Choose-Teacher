@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\contact.html"
     },
     {
+      "Id": "E:\\OrangeTasks\\Final Project\\Choose-Teacher\\Choose-Teacher\\Choose-Teacher\\wwwroot\\course-single.html",
+      "PackagePath": "staticwebassets\\course-single.html"
+    },
+    {
       "Id": "E:\\OrangeTasks\\Final Project\\Choose-Teacher\\Choose-Teacher\\Choose-Teacher\\wwwroot\\css\\maps\\style.css.map",
       "PackagePath": "staticwebassets\\css\\maps\\style.css.map"
     },
@@ -323,6 +327,10 @@
     {
       "Id": "E:\\OrangeTasks\\Final Project\\Choose-Teacher\\Choose-Teacher\\Choose-Teacher\\wwwroot\\scss\\templates\\_slider.scss",
       "PackagePath": "staticwebassets\\scss\\templates\\_slider.scss"
+    },
+    {
+      "Id": "E:\\OrangeTasks\\Final Project\\Choose-Teacher\\Choose-Teacher\\Choose-Teacher\\wwwroot\\teacher-single.html",
+      "PackagePath": "staticwebassets\\teacher-single.html"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Choose-Teacher.Microsoft.AspNetCore.StaticWebAssets.props",

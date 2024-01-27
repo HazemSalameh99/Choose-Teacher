@@ -1,0 +1,164 @@
+﻿@model Teacher
+@{
+    ViewData["Title"] = "Teacher Details";
+}
+
+<!-- section -->
+<section class="section-sm">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <!-- course thumb -->
+                <img src="images/courses/course-single.jpg" class="img-fluid w-100">
+            </div>
+        </div>
+        <!-- course info -->
+        <div class="row align-items-center mb-5">
+            <div class="col-xl-3 order-1 col-sm-6 mb-4 mb-xl-0">
+                <h2>@Html.DisplayFor(t => t.TeacherName)</h2>
+            </div>
+            <div class="col-xl-6 order-sm-3 order-xl-2 col-12 order-2">
+                <ul class="list-inline text-xl-center">
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-book text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">@Html.DisplayNameFor(t => t.Category.CategoryName)</h6>
+                                <p class="mb-0">@Html.DisplayFor(t => t.Category.CategoryName)</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-alarm-clock text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">DURATION</h6>
+                                <p class="mb-0">01 Hours</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-wallet text-primary icon-md mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">@Html.DisplayNameFor(t => t.PriceOfHour)</h6>
+                                <p class="mb-0">@Html.DisplayFor(t => t.PriceOfHour) JD</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-inline-item mr-4 mb-3 mb-sm-0">
+                        <div class="d-flex align-items-center">
+                            <i class="ti-location-pin text-primary mr-2"></i>
+                            <div class="text-left">
+                                <h6 class="mb-0">@Html.DisplayNameFor(t => t.City)</h6>
+                                <p class="mb-0">@Html.DisplayFor(t => t.City)</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xl-3 text-sm-right text-left order-sm-2 order-3 order-xl-3 col-sm-6 mb-4 mb-xl-0">
+                <a asp-action="Book" asp-controller="Home" asp-route-id="@Model.TeacherId" class="btn btn-primary">Book now</a>
+            </div>
+            <!-- border -->
+            <div class="col-12 mt-4 order-4">
+                <div class="border-bottom border-primary"></div>
+            </div>
+        </div>
+
+        <div class="col-lg-8 text-center text-lg-right">
+            <ul class="list-inline">
+                <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#bio">About Teacher</a></li>
+                <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#Reviews">Reviews</a></li>
+                <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#Experience">Experience</a></li>
+                <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#Education">Education</a></li>
+            </ul>
+        </div>
+        <!-- course details -->
+        <div class="row">
+            <div class="col-12 mb-4" id="bio">
+                <h3>About Teacher</h3>
+                <p>
+                    @Html.DisplayFor(t => t.Bio)
+                </p>
+            </div>
+            <div class="col-12 mb-4" id="Reviews">
+                <h3 class="mb-3">Reviews</h3>
+                <div>
+                    <a asp-action="WriteReview" asp-controller="Home" class="btn btn-sm btn-primary-outline ml-sm-3 d-none d-sm-block">Write a review</a>
+                </div>
+                <div class="col-12 px-0">
+                    <div class="row">
+                        <table class="table table-light">
+                            <tbody>
+                                @foreach (var item in Model.TeacherReviews)
+                                {
+                                    <tr>
+                                        <td>
+                                            @item.User.UserName
+                                        </td>
+                                        <td>
+                                            @item.Comment
+                                        </td>
+                                        <td>
+                                            <i class="fa-solid fa-star"></i>
+                                            @item.Rating
+                                        </td>
+                                        <td>@item.Date</td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mb-4" id="Experience">
+                <h3 class="mb-3">Experience</h3>
+                <table class="table table-light">
+                    <tbody>
+                        @foreach (var item in Model.Experiences)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Position
+                                </td>
+                                <td>
+                                    @item.Organization
+                                </td>
+                                <td>
+                                    @item.StartDate - @item.EndDate
+                                </td>
+                                <td>
+                                    @item.Description
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 mb-5" id="Education">
+                <h3>Education</h3>
+                <table class="table table-light">
+                    <tbody>
+                        @foreach (var item in Model.Educations)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Majoring
+                                </td>
+                                <td>
+                                    @item.University
+                                </td>
+                                <td>
+                                    @item.GraduationYear
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /section -->

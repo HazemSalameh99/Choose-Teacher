@@ -18,6 +18,7 @@ namespace Choose_Teacher.Data
         public DbSet<TeacherAvailability> TeacherAvailabilities { get; set; }
         public DbSet<TeacherReview> TeacherReviews { get; set; }
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Booking>Bookings { get; set; }
 
 
     }

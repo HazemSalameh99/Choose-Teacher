@@ -41,6 +41,13 @@ namespace Choose_Teacher.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public ICollection<User> Users { get; set; }
+        public ICollection<TeacherReview> TeacherReviews{ get; set; }
+        public ICollection<TeacherAvailability> TeacherAvailabilities { get; set; }
+        public ICollection<Experience> Experiences { get; set; }
+        public ICollection<Education> Educations { get; set; }
+        public ICollection<Certification> Certifications { get; set; }
+
+
         public decimal Price(decimal Hour,decimal PriceOfHour)
         {
             return Hour * PriceOfHour;  

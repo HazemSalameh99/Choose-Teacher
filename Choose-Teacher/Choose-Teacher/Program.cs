@@ -11,7 +11,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("constr"));
 });
-builder.Services.AddSession(s=>s.IdleTimeout=TimeSpan.FromSeconds(20));
+builder.Services.AddSession(s=>s.IdleTimeout=TimeSpan.FromMinutes(120));
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {

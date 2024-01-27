@@ -67,6 +67,9 @@ namespace Choose_Teacher.Controllers
                 if (checkUser)
                 {
                     HttpContext.Session.SetString("Email",model.Email);
+                    var userId=_context.Users.FirstOrDefault(u=>u.Email == model.Email);
+                    HttpContext.Session.SetInt32("userId", userId.UserId);
+                    HttpContext.Session.SetString("userName", userId.UserName);
                     return RedirectToAction("Index","Home");
                 }
                 else if (checkTeacher||Admin)

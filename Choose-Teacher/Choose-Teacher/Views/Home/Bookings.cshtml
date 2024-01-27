@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Booking>
+
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<h1>Bookings</h1>
+
+@if (Model.Any())
+{
+    <table class="table table-active">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(x=>x.Teacher.TeacherName)</th>
+                <th>@Html.DisplayNameFor(x=>x.BookingDate)</th>
+                <th>@Html.DisplayNameFor(x=>x.BookingHour)</th>
+                <th>@Html.DisplayNameFor(x=>x.Price)</th>
+                <th>@Html.DisplayNameFor(x=>x.Status)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model)
+            {
+                <tr>
+                    <td>@booking.Teacher.TeacherName</td>
+                    <td>@booking.BookingDate.ToShortDateString()</td>
+                    <td>@booking.BookingHour</td>
+                    <td>@booking.Price</td>
+                    <td>@booking.Status</td>
+                    <td>
+                        <form asp-action="CancelBooking" asp-route-bookingId="@booking.BookingId" method="post">
+                            <input type="submit" value="Cancel Booking" />
+                        </form>
+                    </td>   
+                    <!-- Add other booking properties as needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">
+    <h1>No bookings found for the user.</h1>
+    </div>
+}

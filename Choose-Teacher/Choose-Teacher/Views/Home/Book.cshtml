@@ -1,0 +1,70 @@
+﻿@model BookingViewModel
+@{
+    ViewData["Title"] = "Booking Teacher";
+}
+<h1>Book @Model.TeacherName</h1>
+<!-- Include SweetAlert CSS and JavaScript -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+
+
+@using (Html.BeginForm("Book", "Home", FormMethod.Post))
+{
+    <div>
+        <label asp-for="BookingDate">Booking Date:</label>
+        <input type="date" id="BookingDate" name="BookingDate" value="@Model.BookingDate.ToString("yyyy-MM-dd")" />
+    </div> <br />
+    <div>
+        <label asp-for="BookingHour">Booking Hour:</label>
+        <input type="date" id="BookingHour" name="BookingHour" value="@Model.BookingHour" />
+    </div>
+    <!-- Add other form fields as needed -->
+    <p><span class="text-secondary" id="price">@TempData["price"]</span></p>
+
+    <input type="submit" value="Book Now" />
+}
+
+<script>
+    $(document).ready(function () {
+        // Assuming you're using jQuery
+        $('#bookingForm').submit(function (e) {
+            e.preventDefault();
+
+            // Your AJAX request to the server
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("Book", "YourController")',
+                data: $(this).serialize(),
+                success: function (result) {
+                    if (result.success) {
+                        // Show a success message using SweetAlert
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Booking successful!',
+                            text: 'Your booking has been successfully submitted.',
+                            confirmButtonText: 'OK'
+                        }).then(function () {
+                            // Redirect to another page after the user clicks OK
+                            window.location.href = '@Url.Action("BookingConfirmation", "YourController")';
+                        });
+                    } else {
+                        // Show an error message
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: result.message
+                        });
+                    }
+                },
+                error: function () {
+                    // Handle AJAX error
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'An error occurred. Please try again.'
+                    });
+                }
+            });
+        });
+    });
+</script>

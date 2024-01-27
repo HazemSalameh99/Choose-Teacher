@@ -5,13 +5,13 @@ namespace Choose_Teacher.Models
     public class Category
     {
         public int CategoryId { get; set; }
-        [Required(ErrorMessage = "Input Category Name")]
-        [Display(Name = "Category Name")]
+        [Required(ErrorMessage = "Input Material Name")]
+        [Display(Name = "Material")]
         public string CategoryName { get; set; }
-        [Display(Name = "Category Descrition")]
+        [Display(Name = "Material Descrition")]
         [DataType(DataType.MultilineText)]
         public string? CategoryDesc { get; set; }
-        [Display(Name = "Category Images")] 
+        [Display(Name = "Material Images")] 
         [DataType(DataType.ImageUrl)]
         public string? CategoryImg { get; set; }
     }
