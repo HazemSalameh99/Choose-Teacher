@@ -6,13 +6,16 @@ namespace Choose_Teacher.Models
     {
         public int BookingId { get; set; }
         public DateTime BookingDate { get; set; }
-        public decimal BookingHour { get; set; }
-        public decimal Price { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
+        public double Price { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }  
         public int TeacherId { get; set; }
         public Teacher Teacher { get; set; }
         public Status Status { get; set; }
+      
+
     }
     public enum Status
     {

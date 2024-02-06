@@ -1,0 +1,63 @@
+﻿@model Choose_Teacher.Models.Experience
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+<div>
+    <h4>Details Experience</h4>
+    <hr />
+    <dl class="row">
+        @if (Context.Session.GetString("adminName") != null)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Teacher.TeacherName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Teacher.TeacherName)
+            </dd>
+        }
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Organization)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Organization)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Position)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Position)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EndDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (Context.Session.GetString("adminName") == null)
+    {
+
+        <a asp-action="Edit" asp-route-id="@Model?.ExperienceId"><i class="fas fa-pencil-alt"></i></a>
+        <a asp-action="Index">Back to List</a>
+
+    }
+    <a asp-action="Index">Back to List</a>
+</div>

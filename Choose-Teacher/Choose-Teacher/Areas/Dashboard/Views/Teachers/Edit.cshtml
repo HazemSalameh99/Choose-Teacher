@@ -1,0 +1,119 @@
+﻿@model EditTeacherViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml";
+}
+<style>
+    /* Custom styling for the "Edit Teacher Information" section */
+    h4 {
+        font-size: 24px; /* Adjust the font size as needed */
+        color: #333; /* Set the text color */
+        margin-bottom: 20px; /* Add spacing at the bottom */
+    }
+
+    /* Style the image */
+    img.rounded-circle {
+        border-radius: 50%; /* Create a circular shape for the image */
+        border: 4px solid #fff; /* Add a white border around the image */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Apply a subtle shadow effect */
+    }
+
+    /* Style the form inputs and labels */
+    .form-group {
+        margin-bottom: 20px; /* Add spacing between form elements */
+    }
+
+    label.control-label {
+        font-weight: bold; /* Make the labels bold */
+    }
+
+    input[type="file"] {
+        margin-top: 10px; /* Add spacing for the file input */
+    }
+
+    /* Style the submit button */
+    input[type="submit"] {
+        background-color: #007bff; /* Set the background color */
+        color: #fff; /* Set the text color */
+        padding: 10px 20px; /* Add padding to the button */
+        border: none; /* Remove the border */
+        cursor: pointer; /* Add a pointer cursor on hover */
+    }
+
+    /* Back to List link */
+    a {
+        color: #007bff; /* Set the link color */
+        text-decoration: none; /* Remove the underline */
+        margin-top: 20px; /* Add spacing at the top */
+        display: inline-block; /* Display the link as a block element */
+    }
+
+</style>
+@if (Context.Session.GetString("teacherName") != null)
+{
+    <h4>My Profile @Html.DisplayFor(c => c.TeacherName)</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <img src="~/img/@TempData["teacherImg"]" class="rounded-circle" height="300" width="300" asp-append-version="true" />
+
+            <form asp-action="Edit" method="post"enctype="multipart/form-data">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <input type="hidden" asp-for="@TempData["teacerId"]" />
+                <div class="form-group">
+                    <label asp-for="TeacherName" class="control-label"></label>
+                    <input asp-for="TeacherName" class="form-control" />
+                    <span asp-validation-for="TeacherName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="phoneNumber" class="control-label"></label>
+                    <input asp-for="phoneNumber" class="form-control" />
+                    <span asp-validation-for="phoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <select asp-for="City" asp-items="@Html.GetEnumSelectList<City>()" class="form-control"></select>
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PriceOfHour" class="control-label"></label>
+                    <input asp-for="PriceOfHour" class="form-control" />
+                    <span asp-validation-for="PriceOfHour" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Loacation" class="control-label"></label>
+                    <input asp-for="Loacation" class="form-control" />
+                    <span asp-validation-for="Loacation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Bio" class="control-label"></label>
+                    <input asp-for="Bio" class="form-control" />
+                    <span asp-validation-for="Bio" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ImageUrl" class="control-label"></label>
+                    <input type="file" asp-for="ImageUrl" class="form-control" />
+                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoryId" class="control-label"></label>
+                    <select asp-for="CategoryId" class="form-control" readonly asp-items="ViewBag.CategoryId"></select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index"asp-controller="Home"asp-area="Dashboard">Back to Home</a>
+    </div>
+}

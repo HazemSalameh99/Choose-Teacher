@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Choose_Teacher.Models.TeacherAvailability>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml";
+}
+<h1>Teacher Availability</h1>
+@if (Context.Session.GetString("adminName") == null)
+{
+    <p>
+        <a asp-action="Create">Add Days Availability</a>
+    </p>
+}
+<table class="table table-light">
+    <thead>
+        <tr>
+            @if (Context.Session.GetString("adminName") != null)
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.Teacher.TeacherName)
+                </th>
+            }
+            <th>
+                @Html.DisplayNameFor(model => model.dayOfWeek)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @if (Context.Session.GetString("adminName") != null)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.TeacherName)
+                    </td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.dayOfWeek)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndTime)
+                </td>
+                <td>
+                    @if (Context.Session.GetString("adminName") == null)
+                    {
+                    <td>
+                   
+                    <a asp-action="Edit" asp-route-id="@item.TeacherAvailabilityId"><i class="fas fa-pencil-alt"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.TeacherAvailabilityId"><i class="fas fa-eye"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.TeacherAvailabilityId"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                    }
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.TeacherAvailabilityId"><i class="fas fa-eye"></i></a> |
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

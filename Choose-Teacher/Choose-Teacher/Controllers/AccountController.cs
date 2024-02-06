@@ -3,6 +3,7 @@ using Choose_Teacher.Models;
 using Choose_Teacher.Models.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -71,11 +72,21 @@ namespace Choose_Teacher.Controllers
                     HttpContext.Session.SetInt32("userId", userId.UserId);
                     HttpContext.Session.SetString("userName", userId.UserName);
                     return RedirectToAction("Index","Home");
-                }
-                else if (checkTeacher||Admin)
+                }else if (checkTeacher)
                 {
-                    HttpContext.Session.SetString("Email",model.Email); 
-                    return RedirectToAction("Index", "Admin");
+                    var teacherId = _context.Teachers.FirstOrDefault(t => t.Email == model.Email);
+                    HttpContext.Session.SetString("Email", model.Email);
+                    HttpContext.Session.SetInt32("teacherId", teacherId.TeacherId);
+                    HttpContext.Session.SetString("teacherName", teacherId.TeacherName);
+
+                    return RedirectToAction("Index", "Home", new { area = "Dashboard" });
+                }
+                else if (Admin)
+                {
+                    var adminId = _context.Users.FirstOrDefault(u => u.Email == model.Email && u.Role==Role.Admin);
+                    HttpContext.Session.SetInt32("adminId", adminId.UserId);
+                    HttpContext.Session.SetString("adminName", adminId.UserName);
+                    return RedirectToAction("Index", "Home", new { area = "Dashboard"});
                 }
                 else
                 {

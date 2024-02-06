@@ -26,10 +26,10 @@ namespace Choose_Teacher.Controllers
             if (id == null) { return NotFound(nameof(Book)); }
             var teacher = await _context.Teachers.SingleOrDefaultAsync(t => t.TeacherId == id);
             if (teacher == null) { return NotFound($"{nameof(Book)} is null"); }
-            var model = new BookingViewModel
+            var model = new Booking
             {
                 TeacherId = teacher.TeacherId,
-                TeacherName = teacher.TeacherName,
+                Teacher = teacher,
                 BookingDate = DateTime.Now,
                 Status = Status.Pending,
             };
@@ -37,37 +37,30 @@ namespace Choose_Teacher.Controllers
         }
 
         [HttpPost]
-        public IActionResult Book(BookingViewModel model)
+        public IActionResult Book(Booking model)
         {
-            if (ModelState.IsValid)
+
+            var teacher = _context.Teachers.Find(model.TeacherId);
+
+            var userId = HttpContext.Session.GetInt32("userId");
+            if (userId.HasValue)
             {
-                var teacher = _context.Teachers.Find(model.TeacherId);
 
-                var userId = HttpContext.Session.GetInt32("userId");
-                if (userId.HasValue)
-                {
-                    var booking = new Booking
-                    {
-                        BookingDate = model.BookingDate,
-                        BookingHour = model.BookingHour,
-                        UserId = userId.Value,
-                        TeacherId = model.TeacherId,
-                        Status = Status.Pending
-                    };
-                    booking.Price = teacher.Price(model.BookingHour, teacher.PriceOfHour);
-                    TempData["price"] = booking.Price;
-
-                    _context.Bookings.Add(booking);
-                    _context.SaveChanges();
-                }
-                else { return RedirectToAction("Login", "Account", new { returnUrl = "/Home/Book" }); }
-
-                // Redirect to a confirmation page or take any other action
-                return RedirectToAction("Bookings");
+                var hour =(decimal)(model.EndTime.Hours - model.StartTime.Hours);
+                model.Price = (double)(hour * teacher.PriceOfHour);
+                model.TeacherId = teacher.TeacherId;
+                model.UserId = userId.Value;
+                _context.Bookings.Add(model);
+                _context.SaveChanges();
             }
+            else { return RedirectToAction("Login", "Account", new { returnUrl = "/Bookings/Book" }); }
+
+            // Redirect to a confirmation page or take any other action
+            return RedirectToAction("Bookings", "Bookings");
+
 
             // If ModelState is not valid, redisplay the form with validation errors
-            return View(model);
+
         }
         public IActionResult Bookings()
         {
@@ -78,8 +71,11 @@ namespace Choose_Teacher.Controllers
             {
                 // Retrieve the user's bookings
                 var userBookings = _context.Bookings
+                    .Include(x=>x.Teacher)
+                    .Where(b=>b.Status!=Status.Canceled)
                     .Where(b => b.UserId == userId.Value)
                     .ToList();
+                
 
                 return View(userBookings);
             }

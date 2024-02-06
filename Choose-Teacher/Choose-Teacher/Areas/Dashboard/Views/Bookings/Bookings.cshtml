@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Booking>
+
+@{
+    ViewData["Title"] = "Bookings";
+    Layout = "~/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml";
+}
+<script>
+
+    function approveBooking(bookingId) {
+        swal({
+            title: "Are you sure?",
+            text: "Once approved, you will not be able to change the booking status!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willApprove) => {
+                if (willApprove) {
+                    // Call your ApproveBooking action here
+                } else {
+                    swal("Your booking status is safe!");
+                }
+            });
+    }
+    function rejectBooking(bookingId) {
+        swal({
+            title: "Are you sure?",
+            text: "Once rejected, you will not be able to change the booking status!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willReject) => {
+                if (willReject) {
+                    // Call your RejectBooking action here
+                } else {
+                    swal("Your booking status is safe!");
+                }
+            });
+    }
+</script>
+<h1>Bookings</h1>
+
+@if (Model.Any())
+{
+    <table class="table table-active">
+        <thead>
+            <tr>
+                @if (Context.Session.GetString("adminName") != null)
+                {
+                    <th>@Html.DisplayNameFor(x => x.Teacher.TeacherName)</th>
+                }
+                <th>@Html.DisplayNameFor(x => x.User.UserName)</th>
+                <th>@Html.DisplayNameFor(x => x.BookingDate)</th>
+                <th>@Html.DisplayNameFor(x => x.StartTime)</th>
+                <th>@Html.DisplayNameFor(x => x.EndTime)</th>
+                <th>@Html.DisplayNameFor(x => x.Price)</th>
+                <th>@Html.DisplayNameFor(x => x.Status)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Model)
+            {
+                <tr>
+                    @if (Context.Session.GetString("adminName") != null)
+                    {
+                        <td>@booking.Teacher.TeacherName</td>
+                    }
+                    <td>@booking.User.UserName</td>
+                    <td>@booking.BookingDate.ToShortDateString()</td>
+                    <td>@booking.StartTime</td>
+                    <td>@booking.EndTime</td>
+                    <td>@booking.Price</td>
+                    <td>@booking.Status</td>
+                    @if (Context.Session.GetString("teacherName") != null)
+                    {
+                        @if (booking.Status == Status.Pending)
+                        {
+                            <td>
+                                <form asp-action="ApproveBooking" onclick="approveBooking(@booking.BookingId)" asp-controller="Bookings" asp-area="Dashboard" asp-route-bookingId="@booking.BookingId" method="post">
+                                    <input type="submit" value="Approve Booking" />
+                                </form>
+                            </td>
+                            <td>
+                                <form asp-action="RejectBooking" onclick="rejectBooking(@booking.BookingId)" asp-controller="Bookings" asp-area="Dashboard" asp-route-bookingId="@booking.BookingId" method="post">
+                                    <input type="submit" value="Reject Booking" />
+                                </form>
+                            </td>
+                        }
+
+                    }
+
+                    <!-- Add other booking properties as needed -->
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-warning">
+        <h1>No bookings found for the user.</h1>
+    </div>
+}

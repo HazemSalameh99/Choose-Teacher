@@ -17,7 +17,7 @@ namespace Choose_Teacher.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.0")
+                .HasAnnotation("ProductVersion", "8.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -33,11 +33,14 @@ namespace Choose_Teacher.Migrations
                     b.Property<DateTime>("BookingDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("BookingHour")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("time");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<TimeSpan>("StartTime")
+                        .HasColumnType("time");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -54,7 +57,7 @@ namespace Choose_Teacher.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Bookings");
+                    b.ToTable("Bookings", (string)null);
                 });
 
             modelBuilder.Entity("Choose_Teacher.Models.Category", b =>
@@ -77,7 +80,7 @@ namespace Choose_Teacher.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Choose_Teacher.Models.Certification", b =>
@@ -115,7 +118,7 @@ namespace Choose_Teacher.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Certifications");
+                    b.ToTable("Certifications", (string)null);
                 });
 
             modelBuilder.Entity("Choose_Teacher.Models.Education", b =>
@@ -153,7 +156,7 @@ namespace Choose_Teacher.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Educations");
+                    b.ToTable("Educations", (string)null);
                 });
 
             modelBuilder.Entity("Choose_Teacher.Models.Experience", b =>
@@ -197,7 +200,7 @@ namespace Choose_Teacher.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("Experiences");
+                    b.ToTable("Experiences", (string)null);
                 });
 
             modelBuilder.Entity("Choose_Teacher.Models.Slider", b =>
@@ -222,7 +225,7 @@ namespace Choose_Teacher.Migrations
 
                     b.HasKey("SliderId");
 
-                    b.ToTable("Sliders");
+                    b.ToTable("Sliders", (string)null);
                 });
 
             modelBuilder.Entity("Choose_Teacher.Models.Teacher", b =>
@@ -234,7 +237,6 @@ namespace Choose_Teacher.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TeacherId"));
 
                     b.Property<string>("Bio")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CategoryId")
@@ -281,7 +283,7 @@ namespace Choose_Teacher.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Teachers");
+                    b.ToTable("Teachers", (string)null);
                 });
 
             modelBuilder.Entity("Choose_Teacher.Models.TeacherAvailability", b =>
@@ -308,7 +310,7 @@ namespace Choose_Teacher.Migrations
 
                     b.HasIndex("TeacherId");
 
-                    b.ToTable("TeacherAvailabilities");
+                    b.ToTable("TeacherAvailabilities", (string)null);
                 });
 
             modelBuilder.Entity("Choose_Teacher.Models.TeacherReview", b =>
@@ -340,7 +342,7 @@ namespace Choose_Teacher.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("TeacherReviews");
+                    b.ToTable("TeacherReviews", (string)null);
                 });
 
             modelBuilder.Entity("Choose_Teacher.Models.User", b =>
@@ -389,7 +391,7 @@ namespace Choose_Teacher.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("TeacherUser", b =>
@@ -404,7 +406,7 @@ namespace Choose_Teacher.Migrations
 
                     b.HasIndex("UsersUserId");
 
-                    b.ToTable("TeacherUser");
+                    b.ToTable("TeacherUser", (string)null);
                 });
 
             modelBuilder.Entity("Choose_Teacher.Models.Booking", b =>

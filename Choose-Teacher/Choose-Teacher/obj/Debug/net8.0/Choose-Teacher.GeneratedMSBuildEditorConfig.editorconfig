@@ -26,6 +26,146 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = E:\OrangeTasks\Final Project\Choose-Teacher\Choose-Teacher\Choose-Teacher
 build_property._RazorSourceGeneratorDebug = 
 
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Bookings/Bookings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXEJvb2tpbmdzXEJvb2tpbmdzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Categories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXENhdGVnb3JpZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Categories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXENhdGVnb3JpZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Categories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXENhdGVnb3JpZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Categories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXENhdGVnb3JpZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Categories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXENhdGVnb3JpZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Certifications/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXENlcnRpZmljYXRpb25zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Certifications/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXENlcnRpZmljYXRpb25zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Certifications/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXENlcnRpZmljYXRpb25zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Certifications/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXENlcnRpZmljYXRpb25zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Certifications/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXENlcnRpZmljYXRpb25zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Educations/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXEVkdWNhdGlvbnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Educations/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXEVkdWNhdGlvbnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Educations/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXEVkdWNhdGlvbnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Educations/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXEVkdWNhdGlvbnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Educations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXEVkdWNhdGlvbnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Experiences/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXEV4cGVyaWVuY2VzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Experiences/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXEV4cGVyaWVuY2VzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Experiences/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXEV4cGVyaWVuY2VzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Experiences/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXEV4cGVyaWVuY2VzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Experiences/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXEV4cGVyaWVuY2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXEhvbWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXFNoYXJlZFxfRGFzaGJvYXJkTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/TeacherAvailabilities/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXFRlYWNoZXJBdmFpbGFiaWxpdGllc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/TeacherAvailabilities/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXFRlYWNoZXJBdmFpbGFiaWxpdGllc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/TeacherAvailabilities/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXFRlYWNoZXJBdmFpbGFiaWxpdGllc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/TeacherAvailabilities/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXFRlYWNoZXJBdmFpbGFiaWxpdGllc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/TeacherAvailabilities/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXFRlYWNoZXJBdmFpbGFiaWxpdGllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Teachers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXFRlYWNoZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Teachers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXFRlYWNoZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Teachers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXFRlYWNoZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Teachers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXFRlYWNoZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/Teachers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXFRlYWNoZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Areas/Dashboard/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRGFzaGJvYXJkXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -84,6 +224,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Views/Teachers/Teachers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcVGVhY2hlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Views/Teachers/WriteReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcV3JpdGVSZXZpZXcuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/OrangeTasks/Final Project/Choose-Teacher/Choose-Teacher/Choose-Teacher/Views/_ViewImports.cshtml]

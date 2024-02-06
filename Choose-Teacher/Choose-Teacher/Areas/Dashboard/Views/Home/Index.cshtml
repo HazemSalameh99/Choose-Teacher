@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@using Microsoft.AspNetCore.Http
+
+@if (Context.Session.GetString("teacherName")!=null)
+{
+    <h1>Welcome Mr. <span class="text-primary">@Context.Session.GetString("teacherName")</span></h1>
+}
+else if (Context.Session.GetString("adminName") != null)
+{
+    <h1>Welcome Mr. <span class="text-primary">@Context.Session.GetString("adminName")</span></h1>
+
+}

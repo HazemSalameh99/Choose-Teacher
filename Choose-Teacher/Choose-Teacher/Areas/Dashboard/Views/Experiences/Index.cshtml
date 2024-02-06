@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Choose_Teacher.Models.Experience>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>Experiences</h1>
+@if (Context.Session.GetString("adminName") == null)
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Add Experience</a>
+    </p>
+}
+<table class="table table-light">
+    <thead>
+        <tr>
+            @if (Context.Session.GetString("adminName") != null)
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.Teacher.TeacherName)
+                </th>
+            }
+            <th>
+                @Html.DisplayNameFor(model => model.Organization)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @if (Context.Session.GetString("adminName") != null)
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.TeacherName)
+                    </td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.Organization)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                @if (Context.Session.GetString("adminName") == null)
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ExperienceId"><i class="fas fa-pencil-alt"></i></a> |
+                        <a asp-action="Details" asp-route-id="@item.ExperienceId"><i class="fas fa-eye"></i></a> |
+                        <a asp-action="Delete" asp-route-id="@item.ExperienceId"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                }
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.ExperienceId"><i class="fas fa-eye"></i></a> |
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

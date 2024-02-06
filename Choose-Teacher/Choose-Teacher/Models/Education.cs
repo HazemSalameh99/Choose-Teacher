@@ -20,7 +20,7 @@ namespace Choose_Teacher.Models
         [Required(ErrorMessage = "Input Teacher")]
         [Display(Name = "Teacher")]
         public int TeacherId { get; set; }
-        public Teacher Teacher { get; set; }
+        public Teacher? Teacher { get; set; }
 
     }
 }

@@ -1,0 +1,47 @@
+﻿@model CategoryViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@if (Context.Session.GetString("adminName") != null)
+{
+    <h4>Add Material</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create"method="post"enctype="multipart/form-data">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CategoryName" class="control-label"></label>
+                    <input asp-for="CategoryName" class="form-control" />
+                    <span asp-validation-for="CategoryName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoryDesc" class="control-label"></label>
+                    <textarea asp-for="CategoryDesc" class="form-control"></textarea>
+                    <span asp-validation-for="CategoryDesc" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoryImg" class="control-label"></label>
+                    <input type="file" asp-for="CategoryImg" class="form-control" />
+                    <span asp-validation-for="CategoryImg" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index" asp-controller="Categories">Back to List</a>
+    </div>
+}
+else
+{
+    <div class="alert-error">
+        <h3>The Page Not Found</h3>
+    </div>
+}

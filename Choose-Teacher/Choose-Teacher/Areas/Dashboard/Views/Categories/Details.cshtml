@@ -1,0 +1,31 @@
+﻿@model Choose_Teacher.Models.Category
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div>
+    <h4>Details @Html.DisplayFor(c=>c.CategoryName)</h4>
+    <hr />
+    <img src="~/img/@Model.CategoryImg" class="rounded-circle" height="250" width="250" asp-append-version="true" />
+    <br /><br />
+    <dl class="row">
+        <dt class = "col-lg-2">
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </dt>
+        <dd class = "col-lg-10">
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+        <dt class = "col-lg-2">
+            @Html.DisplayNameFor(model => model.CategoryDesc)
+        </dt>
+        <dd class = "col-lg-10">
+            @Html.DisplayFor(model => model.CategoryDesc)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.CategoryId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

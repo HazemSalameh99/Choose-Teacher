@@ -37,14 +37,57 @@ namespace Choose_Teacher.Controllers
         public async Task<IActionResult> TeacherDetails(int? id)
         {
             if (id == null) { return NotFound(); }
+            var userId = HttpContext.Session.GetInt32("userId");
             var Data = await _context.Teachers.Include(t => t.TeacherReviews).
                 Include(t => t.TeacherAvailabilities).
                 Include(t => t.Certifications).
                 Include(t => t.Experiences).
                 Include(t => t.Educations).
+                Include(t=>t.Users).
                 SingleOrDefaultAsync(t => t.TeacherId == id);
+            
+
             if (Data == null) { return NotFound(); }
             return View(Data);
         }
+        [HttpGet]
+        public IActionResult WriteReview(int?id)
+        {
+            if (id==null)
+            {
+                return NotFound();
+            }
+            var review=_context.Teachers.SingleOrDefault(r=>r.TeacherId==id);
+            if (review == null)
+            {
+                return NotFound();
+            }
+            var Review = new TeacherReview
+            {
+                TeacherId=review.TeacherId,
+                Date = DateTime.Now,
+            };
+            return View(Review);
+        }
+        [HttpPost]
+        public IActionResult WriteReview(TeacherReview review)
+        {
+            var teacher = _context.Teachers.Find(review.TeacherId);
+            var userId = HttpContext.Session.GetInt32("userId");
+            var user=_context.Users.SingleOrDefault(u=>u.UserId==userId);
+            HttpContext.Session.SetString("User_Name", user.UserName);
+            var userName =HttpContext.Session.GetString("User_Name");
+
+            if (teacher!=null && userId.HasValue)
+            {
+                review.TeacherId = teacher.TeacherId;
+                review.UserId = userId.Value;
+                review.User.UserName = userName;
+                _context.TeacherReviews.Add(review);
+                _context.SaveChanges();
+                return RedirectToAction("TeacherDetails", "Teachers", new { id = review.TeacherId });
+            }
+            else { return RedirectToAction("Login", "Account", new { returnUrl = $"/Teachers/TeacherDetails/{review.TeacherId}" }); }
+            }
     }
 }

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Choose_Teacher.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1> Materials
+</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-light">Add Category</a>
+</p>
+<table class="table table-light">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryImg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryDesc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="~/img/@item.CategoryImg" class="rounded-circle" height="100" width="100" asp-append-version="true" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryDesc)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CategoryId">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a> |
+                    <a asp-action="Details" asp-route-id="@item.CategoryId">
+                        <i class="fas fa-eye"></i>
+                    </a> |
+                    <a asp-action="Delete" asp-route-id="@item.CategoryId">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

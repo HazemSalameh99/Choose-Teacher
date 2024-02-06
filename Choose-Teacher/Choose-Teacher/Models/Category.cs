@@ -14,5 +14,6 @@ namespace Choose_Teacher.Models
         [Display(Name = "Material Images")] 
         [DataType(DataType.ImageUrl)]
         public string? CategoryImg { get; set; }
+        public ICollection<Teacher> Teachers { get; set; }
     }
 }

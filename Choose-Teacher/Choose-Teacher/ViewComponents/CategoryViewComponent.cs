@@ -1,5 +1,6 @@
 ﻿using Choose_Teacher.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata.Ecma335;
 
 namespace Choose_Teacher.ViewComponents
@@ -13,9 +14,8 @@ namespace Choose_Teacher.ViewComponents
         }
         public IViewComponentResult Invoke()
         {
-            var Result = _context.Categories.ToList();
-            var data = _context.Teachers.Count(t => t.TeacherId == t.CategoryId);
-            ViewBag.Number = data;
+            var Result = _context.Categories.Include(c=>c.Teachers)
+                .ToList();
             return View(Result);
         }
     }

@@ -23,26 +23,22 @@
             {
                 <!-- course item -->
                 <div class="col-lg-4 col-sm-6 mb-5">
-                    <div class="card p-0 border-primary rounded-0 hover-shadow">
-                        <img class="card-img-top rounded-0" src="~/img/@item.ImageUrl" alt="course thumb">
+                    <div class="card p-0 border-primary rounded-0 h-100 w-100 hover-shadow">
+                        <img class="card-img-top rounded-0" src="~/img/hazem.jpg" alt="course thumb">
                         <div class="card-body">
                             <ul class="list-inline mb-2">
                                 <li class="list-inline-item"><a class="text-color" href="#">@item.TeacherName</a></li>
                                 <li class="list-inline-item"><i class="ti-calendar mr-1 text-color"></i>@item.PriceOfHour</li>
                             </ul>
-                            <a href="course-single.html">
+                            <a asp-action="TeacherDetails" asp-controller="Teachers" asp-route-id="@item.TeacherId">
                                 <h4 class="card-title">@item.Category.CategoryName</h4>
-                            </a>
+                            </a> 
                             <p class="card-text mb-4">
-                                @if (item.Bio.Length < 100)
-                                {
+                                
                                     @item.Bio
-                                }
-                                else
-                                {
-                                    @item.Bio.Substring(0, 100)
-                                }
+                               
                             </p>
+
                             <p class="card-text mb-4">
                                 <i class="ti-location-pin text-primary mr-2"></i>
                                 @item.City

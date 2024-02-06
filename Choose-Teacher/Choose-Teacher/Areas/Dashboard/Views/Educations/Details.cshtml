@@ -1,0 +1,49 @@
+﻿@model Choose_Teacher.Models.Education
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Dashboard/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<div>
+    <h4>Details Education</h4>
+    <hr />
+    <dl class="row">
+        @if (Context.Session.GetString("adminName") != null)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Teacher.TeacherName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Teacher.TeacherName)
+            </dd>
+        }
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Majoring)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Majoring)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.University)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.University)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GraduationYear)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GraduationYear)
+        </dd>
+    </dl>
+</div>
+<div>
+    @if (Context.Session.GetString("adminName") == null)
+    {
+        <a asp-action="Edit" asp-route-id="@Model?.EducationId"><i class="fas fa-pencil-alt"></i></a>
+
+        <a asp-action="Index"> Back to List</a>
+    }
+    <a asp-action="Index"> Back to List</a>
+</div>

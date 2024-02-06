@@ -3,6 +3,36 @@
 @{
     ViewData["Title"] = "Bookings";
 }
+<script>
+    function cancelBooking(bookingId) {
+        swal({
+            title: "Are you sure?",
+            text: "Once cancelled, you will not be able to change the booking status!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willCancel) => {
+                if (willCancel) {
+                    // Call your CancelBooking action here
+                    $.post("/Bookings/CancelBooking", { bookingId: bookingId })
+                        .done(function () {
+                            swal("Booking cancelled!", {
+                                icon: "success",
+                            });
+                        })
+                        .fail(function () {
+                            swal("An error occurred!", {
+                                icon: "error",
+                            });
+                        });
+                } else {
+                    swal("Your booking status is safe!");
+                }
+            });
+    }
+
+</script>
 
 <h1>Bookings</h1>
 
@@ -13,7 +43,9 @@
             <tr>
                 <th>@Html.DisplayNameFor(x => x.Teacher.TeacherName)</th>
                 <th>@Html.DisplayNameFor(x => x.BookingDate)</th>
-                <th>@Html.DisplayNameFor(x => x.BookingHour)</th>
+                <th>@Html.DisplayNameFor(x => x.StartTime)</th>
+                <th>@Html.DisplayNameFor(x => x.EndTime)</th>
+                @* <th>@Html.DisplayNameFor(x => x.BookHour(x.EndTime,x.StartTime)</th> *@
                 <th>@Html.DisplayNameFor(x => x.Price)</th>
                 <th>@Html.DisplayNameFor(x => x.Status)</th>
                 <th></th>
@@ -25,14 +57,19 @@
                 <tr>
                     <td>@booking.Teacher.TeacherName</td>
                     <td>@booking.BookingDate.ToShortDateString()</td>
-                    <td>@booking.BookingHour</td>
+                    <td>@booking.StartTime</td>
+                    <td>@booking.EndTime</td>
                     <td>@booking.Price</td>
                     <td>@booking.Status</td>
-                    <td>
-                        <form asp-action="CancelBooking" asp-route-bookingId="@booking.BookingId" method="post">
-                            <input type="submit" value="Cancel Booking" />
-                        </form>
-                    </td>
+                    @if (booking.Status == Status.Pending)
+                    {
+                        <td>
+                            <form onclick="cancelBooking(@booking.BookingId)" asp-action="CancelBooking" asp-route-bookingId="@booking.BookingId" method="post">
+                                <input type="submit" value="Cancel Booking" />
+                            </form>
+                        </td>
+                    }
+
                     <!-- Add other booking properties as needed -->
                 </tr>
             }
